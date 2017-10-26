@@ -20,7 +20,6 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-<<<<<<< HEAD
 export class ProductsComponent implements OnInit,OnDestroy {
 
   products:Product[]=[];  
@@ -55,30 +54,6 @@ export class ProductsComponent implements OnInit,OnDestroy {
   }
   ngOnDestroy(){
       this.subscription.unsubscribe();
-=======
-export class ProductsComponent  {
-  products: Product[] = [];
-  filteredProducts: Product[] = [];
-  category: string;
-
-  constructor(
-    route: ActivatedRoute,
-    productService: ProductService
-  ) {
-    productService
-      .getAll()
-      .switchMap(products => {
-        this.products = products;
-        return route.queryParamMap;
-      })
-      .subscribe(params => {
-        this.category = params.get('category');
-        
-        this.filteredProducts = (this.category) ? 
-          this.products.filter(p => p.category === this.category) : 
-          this.products;
-      });
->>>>>>> 69370c00df571045d278cac90ac9a560e918feb2
   }
   
 
